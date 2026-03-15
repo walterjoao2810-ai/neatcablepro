@@ -598,7 +598,7 @@
         <div class="info-icon">📧</div>
         <div>
           <h4>Email</h4>
-          <p>hello@neatcablepro.co.uk</p>
+          <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="751d1019191a351b101401161417191005071a5b161a5b001e">[email&#160;protected]</a></p>
         </div>
       </div>
       <div class="info-item">
@@ -621,31 +621,33 @@
       </div>
     </div>
 
-    <form class="contact-form" onsubmit="handleSubmit(event)">
+    <form class="contact-form" action="https://formspree.io/f/mlgpwpbo" method="POST">
+      <!-- Formspree subject line -->
+      <input type="hidden" name="_subject" value="New Enquiry — Neat Cable Pro">
       <div class="form-row">
         <div class="form-group">
           <label for="name">Your Name</label>
-          <input type="text" id="name" placeholder="Jane Smith" required>
+          <input type="text" id="name" name="name" placeholder="Jane Smith" required>
         </div>
         <div class="form-group">
           <label for="company">Company Name</label>
-          <input type="text" id="company" placeholder="Acme Ltd">
+          <input type="text" id="company" name="company" placeholder="Acme Ltd">
         </div>
       </div>
       <div class="form-row">
         <div class="form-group">
           <label for="email">Email Address</label>
-          <input type="email" id="email" placeholder="jane@company.co.uk" required>
+          <input type="email" id="email" name="email" placeholder="jane@company.co.uk" required>
         </div>
         <div class="form-group">
           <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" placeholder="07700 000000">
+          <input type="tel" id="phone" name="phone" placeholder="07700 000000">
         </div>
       </div>
       <div class="form-row">
         <div class="form-group">
           <label for="package">Package Interested In</label>
-          <select id="package">
+          <select id="package" name="package">
             <option value="">Not sure yet</option>
             <option>Essential Tidy — £55/desk</option>
             <option>Pro Management — £110/desk</option>
@@ -654,7 +656,7 @@
         </div>
         <div class="form-group">
           <label for="size">Number of Desks</label>
-          <select id="size">
+          <select id="size" name="desks">
             <option value="">Select approximate size</option>
             <option>5–10 desks</option>
             <option>11–20 desks</option>
@@ -665,7 +667,7 @@
       </div>
       <div class="form-group">
         <label for="message">Tell us about your office</label>
-        <textarea id="message" placeholder="E.g. We have 10 desks with messy cables underneath — based in Leeds. Happy to send photos..."></textarea>
+        <textarea id="message" name="message" placeholder="E.g. We have 10 desks with messy cables underneath — based in Leeds. Happy to send photos..."></textarea>
       </div>
       <button type="submit" class="form-submit">Send Enquiry →</button>
       <p class="form-note">We typically respond within 1 working day. 5-desk minimum applies to all bookings.</p>
@@ -681,7 +683,7 @@
   <p style="margin-top:0.75rem">© 2025 Neat Cable Pro. All rights reserved.</p>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   function handleSubmit(e) {
     e.preventDefault();
     const btn = e.target.querySelector('.form-submit');
@@ -703,12 +705,4 @@
     });
   }, { threshold: 0.1 });
 
-  document.querySelectorAll('.pricing-card, .why-list li, .ba-card, .info-item, .step, .bolt-item').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-    observer.observe(el);
-  });
-</script>
-</body>
-</html>
+  document.querySelectorAll('.pricing-card, .why-list li, .ba-card, .info-item, 
