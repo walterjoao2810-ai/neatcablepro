@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neat Cable Pro | Professional Cable Management – West & North Yorkshire</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0f1f38;
+    --steel: #1e3a5f;
+    --mid: #2e5986;
+    --accent: #4a9fd4;
+    --light-blue: #d6e8f5;
+    --silver: #b0bec5;
+    --off-white: #f4f7fb;
+    --white: #ffffff;
+    --text: #1a2a3a;
+    --muted: #6b7f8e;
+    --green: #2d8a4e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--off-white); overflow-x: hidden; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(15,31,56,0.96); backdrop-filter: blur(12px);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.1rem 5%; border-bottom: 1px solid rgba(74,159,212,0.2);
+  }
+  .logo { font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: var(--white); }
+  .logo span { color: var(--accent); }
+  nav ul { list-style: none; display: flex; gap: 2rem; }
+  nav ul a { color: var(--silver); text-decoration: none; font-size: 0.9rem; font-weight: 500; letter-spacing: 0.04em; transition: color 0.2s; }
+  nav ul a:hover { color: var(--accent); }
+  .nav-cta { background: var(--accent); color: var(--white) !important; padding: 0.5rem 1.2rem; border-radius: 4px; transition: background 0.2s !important; }
+  .nav-cta:hover { background: var(--mid) !important; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh; background: var(--navy);
+    display: flex; align-items: center;
+    position: relative; overflow: hidden; padding: 8rem 5% 5rem;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 60% at 80% 50%, rgba(46,89,134,0.45) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 10% 80%, rgba(74,159,212,0.12) 0%, transparent 60%);
+  }
+  .cable-deco { position: absolute; right: 0; top: 0; bottom: 0; width: 48%; pointer-events: none; }
+  .cable-deco svg { width: 100%; height: 100%; }
+  .hero-content { position: relative; max-width: 580px; }
+  .hero-eyebrow {
+    display: inline-block; background: rgba(74,159,212,0.15);
+    border: 1px solid rgba(74,159,212,0.4); color: var(--accent);
+    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 0.4rem 0.9rem; border-radius: 20px; margin-bottom: 1.5rem;
+    animation: fadeUp 0.7s ease both;
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif; font-size: clamp(2.6rem, 5vw, 4rem);
+    line-height: 1.12; color: var(--white); margin-bottom: 1.5rem;
+    animation: fadeUp 0.7s 0.15s ease both;
+  }
+  .hero h1 em { color: var(--accent); font-style: italic; }
+  .hero p { font-size: 1.1rem; line-height: 1.7; color: var(--silver); margin-bottom: 2.5rem; font-weight: 300; animation: fadeUp 0.7s 0.3s ease both; }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 0.7s 0.45s ease both; }
+  .btn-primary { background: var(--accent); color: var(--white); padding: 0.85rem 2rem; border-radius: 5px; font-size: 0.95rem; font-weight: 600; text-decoration: none; transition: all 0.25s; border: 2px solid var(--accent); }
+  .btn-primary:hover { background: transparent; color: var(--accent); }
+  .btn-secondary { border: 2px solid rgba(74,159,212,0.4); color: var(--silver); padding: 0.85rem 2rem; border-radius: 5px; font-size: 0.95rem; font-weight: 500; text-decoration: none; transition: all 0.25s; }
+  .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+  .hero-stats { display: flex; gap: 2.5rem; margin-top: 3.5rem; flex-wrap: wrap; animation: fadeUp 0.7s 0.6s ease both; }
+  .stat-num { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--white); }
+  .stat-label { font-size: 0.82rem; color: var(--muted); letter-spacing: 0.04em; }
+
+  /* ── SHARED ── */
+  section { padding: 5.5rem 5%; }
+  .section-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
+  .section-title { font-family: 'DM Serif Display', serif; font-size: clamp(1.8rem, 3vw, 2.6rem); color: var(--navy); line-height: 1.2; margin-bottom: 1.2rem; }
+  .section-title.light { color: var(--white); }
+  .section-sub { font-size: 1rem; color: var(--muted); line-height: 1.7; max-width: 560px; }
+
+  /* ── PRICING ── */
+  #pricing { background: var(--white); }
+  .minimum-notice {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    background: rgba(74,159,212,0.1); border: 1px solid rgba(74,159,212,0.35);
+    color: var(--steel); font-size: 0.85rem; font-weight: 600;
+    padding: 0.55rem 1.1rem; border-radius: 20px; margin-top: 1rem; margin-bottom: 3rem;
+  }
+  .pricing-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 1.5rem; margin-bottom: 3rem;
+  }
+  .pricing-card {
+    background: var(--off-white); border: 2px solid #dde5ee;
+    border-radius: 12px; overflow: hidden; transition: all 0.3s;
+    display: flex; flex-direction: column;
+  }
+  .pricing-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(15,31,56,0.12); }
+  .pricing-card.featured { border-color: var(--accent); background: var(--white); }
+  .featured-badge { background: var(--accent); color: var(--white); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-align: center; padding: 0.4rem; }
+  .card-header { padding: 1.8rem 1.8rem 1.2rem; }
+  .card-tier { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.4rem; }
+  .card-title { font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: var(--navy); margin-bottom: 0.5rem; }
+  .card-price { display: flex; align-items: baseline; gap: 0.3rem; margin-bottom: 0.4rem; }
+  .price-amount { font-family: 'DM Serif Display', serif; font-size: 2.4rem; color: var(--navy); }
+  .price-unit { font-size: 0.85rem; color: var(--muted); }
+  .card-best { font-size: 0.82rem; color: var(--muted); font-style: italic; }
+  .card-divider { height: 1px; background: #dde5ee; margin: 0 1.8rem; }
+  .card-body { padding: 1.5rem 1.8rem; flex: 1; }
+  .card-body h4 { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.8rem; }
+  .card-body h4 + h4 { margin-top: 1.2rem; }
+  .include-list { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; margin-bottom: 1rem; }
+  .include-list li { display: flex; gap: 0.6rem; align-items: flex-start; font-size: 0.88rem; color: var(--text); line-height: 1.4; }
+  .include-list li::before { content: '✓'; color: var(--green); font-weight: 700; margin-top: 1px; flex-shrink: 0; }
+  .materials-list { list-style: none; display: flex; flex-direction: column; gap: 0.45rem; }
+  .materials-list li { display: flex; gap: 0.6rem; align-items: flex-start; font-size: 0.83rem; color: var(--muted); line-height: 1.4; }
+  .materials-list li::before { content: '·'; color: var(--accent); font-weight: 700; flex-shrink: 0; }
+  .card-cta { padding: 1.5rem 1.8rem; }
+  .card-cta a { display: block; text-align: center; background: var(--navy); color: var(--white); padding: 0.8rem; border-radius: 6px; font-weight: 600; font-size: 0.92rem; text-decoration: none; transition: background 0.25s; }
+  .card-cta a:hover { background: var(--steel); }
+  .pricing-card.featured .card-cta a { background: var(--accent); }
+  .pricing-card.featured .card-cta a:hover { background: var(--mid); }
+
+  /* ── BOLT-ONS ── */
+  .bolt-ons { background: var(--off-white); border: 1px solid #dde5ee; border-radius: 12px; padding: 2rem 2.5rem; margin-top: 0.5rem; }
+  .bolt-ons h3 { font-family: 'DM Serif Display', serif; font-size: 1.3rem; color: var(--navy); margin-bottom: 0.4rem; }
+  .bolt-ons > p { font-size: 0.88rem; color: var(--muted); margin-bottom: 1.5rem; }
+  .bolt-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+  .bolt-item { background: var(--white); border: 1px solid #dde5ee; border-radius: 8px; padding: 1rem 1.2rem; transition: border-color 0.2s; }
+  .bolt-item:hover { border-color: var(--accent); }
+  .bolt-price { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--accent); margin-bottom: 0.2rem; }
+  .bolt-item h4 { font-size: 0.9rem; font-weight: 600; color: var(--navy); margin-bottom: 0.25rem; }
+  .bolt-item p { font-size: 0.8rem; color: var(--muted); line-height: 1.4; }
+
+  /* ── WHY US ── */
+  #why { background: var(--navy); }
+  .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 3rem; align-items: start; }
+  .why-list { list-style: none; display: flex; flex-direction: column; gap: 1.2rem; }
+  .why-list li { display: flex; gap: 1rem; align-items: flex-start; background: rgba(255,255,255,0.04); border: 1px solid rgba(74,159,212,0.15); border-radius: 8px; padding: 1.2rem; transition: border-color 0.25s; }
+  .why-list li:hover { border-color: rgba(74,159,212,0.5); }
+  .why-check { width: 28px; height: 28px; min-width: 28px; background: rgba(74,159,212,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 0.85rem; margin-top: 2px; }
+  .why-list h4 { font-size: 0.95rem; font-weight: 600; color: var(--white); margin-bottom: 0.25rem; }
+  .why-list p { font-size: 0.85rem; color: var(--silver); line-height: 1.6; }
+  .why-visual { background: rgba(255,255,255,0.04); border: 1px solid rgba(74,159,212,0.2); border-radius: 12px; padding: 2.5rem; display: flex; flex-direction: column; gap: 1.5rem; }
+  .quote-block { font-family: 'DM Serif Display', serif; font-size: 1.35rem; color: var(--white); line-height: 1.5; font-style: italic; }
+  .quote-block span { color: var(--accent); }
+  .coverage-badge { background: rgba(74,159,212,0.12); border: 1px solid rgba(74,159,212,0.3); border-radius: 6px; padding: 1rem 1.2rem; display: flex; align-items: center; gap: 0.8rem; }
+  .coverage-badge .pin { font-size: 1.4rem; }
+  .coverage-badge p { font-size: 0.85rem; color: var(--silver); }
+  .coverage-badge strong { color: var(--white); font-size: 0.95rem; display: block; }
+
+  /* ── HOW IT WORKS ── */
+  #how { background: var(--off-white); }
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+  .step { background: var(--white); border: 1px solid #dde5ee; border-radius: 10px; padding: 2rem 1.5rem; text-align: center; transition: all 0.3s; }
+  .step:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 10px 28px rgba(15,31,56,0.08); }
+  .step-num { width: 44px; height: 44px; background: var(--light-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: var(--navy); margin: 0 auto 1rem; }
+  .step h3 { font-size: 0.95rem; font-weight: 600; color: var(--navy); margin-bottom: 0.5rem; }
+  .step p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+  /* ── BEFORE/AFTER ── */
+  #gallery { background: var(--white); }
+  .gallery-note { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--light-blue); color: var(--steel); font-size: 0.82rem; padding: 0.5rem 1rem; border-radius: 20px; margin-top: 1rem; margin-bottom: 2.5rem; }
+  .ba-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+  .ba-card { border-radius: 10px; overflow: hidden; border: 1px solid #dde5ee; background: var(--off-white); box-shadow: 0 4px 16px rgba(15,31,56,0.07); }
+  .ba-panels { display: grid; grid-template-columns: 1fr 1fr; }
+  .ba-panel { padding: 2.5rem 1.5rem; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 0.5rem; }
+  .ba-panel.before { background: #fff0f0; border-right: 1px solid #f0dede; }
+  .ba-panel.after { background: #f0fff4; }
+  .ba-panel .icon { font-size: 2.2rem; }
+  .ba-panel .label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+  .ba-panel.before .label { color: #b03a3a; }
+  .ba-panel.after .label { color: #2d8a4e; }
+  .ba-panel .desc { font-size: 0.82rem; color: var(--muted); line-height: 1.4; }
+  .ba-caption { padding: 1rem 1.5rem; border-top: 1px solid #dde5ee; }
+  .ba-caption h4 { font-size: 0.95rem; font-weight: 600; color: var(--navy); }
+  .ba-caption p { font-size: 0.82rem; color: var(--muted); margin-top: 0.2rem; }
+  .ba-tag { display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; background: var(--light-blue); color: var(--steel); padding: 0.2rem 0.6rem; border-radius: 10px; margin-top: 0.4rem; }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--off-white); }
+  .contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem; align-items: start; }
+  .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+  .info-item { display: flex; gap: 1rem; align-items: flex-start; }
+  .info-icon { width: 44px; height: 44px; min-width: 44px; background: var(--light-blue); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
+  .info-item h4 { font-size: 0.82rem; font-weight: 600; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.2rem; }
+  .info-item p { font-size: 0.95rem; color: var(--navy); font-weight: 500; }
+  .insurance-note { background: rgba(45,138,78,0.08); border: 1px solid rgba(45,138,78,0.25); border-radius: 8px; padding: 1rem 1.2rem; display: flex; gap: 0.7rem; align-items: flex-start; }
+  .insurance-note span { font-size: 1.2rem; }
+  .insurance-note p { font-size: 0.85rem; color: #2d6a3a; line-height: 1.5; }
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-group label { font-size: 0.82rem; font-weight: 600; color: var(--text); }
+  .form-group input, .form-group textarea, .form-group select { padding: 0.75rem 1rem; border: 1.5px solid #dde5ee; border-radius: 5px; font-family: inherit; font-size: 0.92rem; color: var(--text); background: var(--white); transition: border-color 0.2s, box-shadow 0.2s; outline: none; }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(74,159,212,0.12); }
+  .form-group textarea { resize: vertical; min-height: 110px; }
+  .form-submit { background: var(--navy); color: var(--white); border: none; padding: 0.9rem 2rem; border-radius: 5px; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: background 0.25s; font-family: inherit; margin-top: 0.25rem; }
+  .form-submit:hover { background: var(--steel); }
+  .form-note { font-size: 0.78rem; color: var(--muted); }
+
+  /* ── FOOTER ── */
+  footer { background: var(--navy); color: var(--silver); text-align: center; padding: 2.5rem 5%; font-size: 0.85rem; border-top: 1px solid rgba(74,159,212,0.15); }
+  footer .logo { font-size: 1.2rem; margin-bottom: 0.5rem; display: block; }
+  footer p { color: var(--muted); margin-top: 0.5rem; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+
+  @media (max-width: 768px) {
+    nav ul { display: none; }
+    .why-grid, .contact-wrap { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .hero { padding-top: 6rem; }
+    .cable-deco { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Neat Cable <span>Pro</span></div>
+  <ul>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="cable-deco">
+    <svg viewBox="0 0 500 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="cg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#4a9fd4" stop-opacity="0.5"/>
+          <stop offset="100%" stop-color="#2e5986" stop-opacity="0.1"/>
+        </linearGradient>
+      </defs>
+      <path d="M80 50 Q200 120 150 200 Q100 280 220 320" stroke="#b03a3a" stroke-width="3" fill="none" stroke-opacity="0.35" stroke-dasharray="6 3"/>
+      <path d="M120 30 Q60 150 180 200 Q280 240 200 360" stroke="#b03a3a" stroke-width="2.5" fill="none" stroke-opacity="0.25" stroke-dasharray="4 4"/>
+      <path d="M200 80 Q300 100 250 220 Q180 300 300 350" stroke="#b03a3a" stroke-width="2" fill="none" stroke-opacity="0.2" stroke-dasharray="5 3"/>
+      <line x1="50" y1="420" x2="450" y2="420" stroke="#4a9fd4" stroke-width="1" stroke-opacity="0.3" stroke-dasharray="8 4"/>
+      <text x="240" y="414" fill="#4a9fd4" font-size="11" opacity="0.5" text-anchor="middle" font-family="sans-serif">BEFORE → AFTER</text>
+      <path d="M100 480 L100 760" stroke="url(#cg)" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M130 480 L130 760" stroke="url(#cg)" stroke-width="5" fill="none" stroke-linecap="round" stroke-opacity="0.7"/>
+      <path d="M160 480 L160 760" stroke="url(#cg)" stroke-width="5" fill="none" stroke-linecap="round" stroke-opacity="0.5"/>
+      <rect x="88" y="560" width="86" height="10" rx="5" fill="#4a9fd4" fill-opacity="0.4"/>
+      <rect x="88" y="640" width="86" height="10" rx="5" fill="#4a9fd4" fill-opacity="0.4"/>
+      <rect x="88" y="720" width="86" height="10" rx="5" fill="#4a9fd4" fill-opacity="0.4"/>
+    </svg>
+  </div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">📍 West & North Yorkshire</div>
+    <h1>Your Office, <em>Tidy.</em><br>Your Cables, Sorted.</h1>
+    <p>Neat Cable Pro brings professional cable management to offices across West and North Yorkshire. Fixed-rate packages, zero hourly surprises, and a workspace you'll actually be proud of.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Get a Free Quote</a>
+      <a href="#pricing" class="btn-secondary">View Packages</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Clear packages</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">5+</div>
+        <div class="stat-label">Desk minimum</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">Zero</div>
+        <div class="stat-label">Hourly rates</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="section-label">Our Packages</div>
+  <h2 class="section-title">Fixed-Rate Cable Management<br>for Professional Offices</h2>
+  <p class="section-sub">No hourly rates. No hidden costs. Choose your package and know exactly what you're paying before we arrive.</p>
+  <div class="minimum-notice">⚠️ 5-desk minimum applies to all bookings — offices with fewer desks are charged at the 5-desk rate</div>
+
+  <div class="pricing-grid">
+
+    <!-- ESSENTIAL -->
+    <div class="pricing-card">
+      <div class="card-header">
+        <div class="card-tier">Package 1</div>
+        <div class="card-title">The Essential Tidy</div>
+        <div class="card-price">
+          <span class="price-amount">£55</span>
+          <span class="price-unit">per desk</span>
+        </div>
+        <div class="card-best">Best for: General de-cluttering & Health and Safety compliance</div>
+      </div>
+      <div class="card-divider"></div>
+      <div class="card-body">
+        <h4>What's Included</h4>
+        <ul class="include-list">
+          <li>Full untangling and de-cluttering of all under-desk cables</li>
+          <li>Bundling power and data cables into clean, logical runs</li>
+          <li>Clearing all "floor spaghetti" to eliminate trip hazards</li>
+          <li>Cables lifted off the carpet and secured neatly to desk</li>
+        </ul>
+        <h4>Materials Used</h4>
+        <ul class="materials-list">
+          <li>Bulk Velcro straps (reusable, high quality)</li>
+          <li>Nylon zip ties for permanent cable runs</li>
+          <li>Adhesive cable clips along the desk frame</li>
+          <li>Cable sleeves to bundle drops where needed</li>
+        </ul>
+      </div>
+      <div class="card-cta"><a href="#contact">Book This Package</a></div>
+    </div>
+
+    <!-- PRO -->
+    <div class="pricing-card featured">
+      <div class="featured-badge">⭐ Most Popular</div>
+      <div class="card-header">
+        <div class="card-tier">Package 2</div>
+        <div class="card-title">The Pro Management</div>
+        <div class="card-price">
+          <span class="price-amount">£110</span>
+          <span class="price-unit">per desk</span>
+        </div>
+        <div class="card-best">Best for: Professional offices requiring long-term clean aesthetics</div>
+      </div>
+      <div class="card-divider"></div>
+      <div class="card-body">
+        <h4>What's Included</h4>
+        <ul class="include-list">
+          <li>Everything in The Essential Tidy</li>
+          <li>Installation of heavy-duty steel mesh cable trays/baskets</li>
+          <li>Power strips mounted and concealed inside the tray</li>
+          <li>Hidden routing of all power adapters (bricks)</li>
+          <li>All hardware securely fitted to the underside of desk</li>
+        </ul>
+        <h4>Materials Used</h4>
+        <ul class="materials-list">
+          <li>Steel mesh cable trays/baskets (ventilated for adapters)</li>
+          <li>Wood screws for secure, permanent desk mounting</li>
+          <li>Industrial-strength adhesive strips where applicable</li>
+        </ul>
+      </div>
+      <div class="card-cta"><a href="#contact">Book This Package</a></div>
+    </div>
+
+    <!-- EXECUTIVE -->
+    <div class="pricing-card">
+      <div class="card-header">
+        <div class="card-tier">Package 3</div>
+        <div class="card-title">The Executive Hub</div>
+        <div class="card-price">
+          <span class="price-amount">£175</span>
+          <span class="price-unit">per desk</span>
+        </div>
+        <div class="card-best">Best for: Sit-stand desks, high-end workstations & IT-heavy offices</div>
+      </div>
+      <div class="card-divider"></div>
+      <div class="card-body">
+        <h4>What's Included</h4>
+        <ul class="include-list">
+          <li>Everything in The Pro Management</li>
+          <li>Vertical cable spine installation for sit-stand desk safety</li>
+          <li>Full cable identification — every cable labelled at both ends</li>
+          <li>IT-ready asset mapping for easy future maintenance</li>
+          <li>Desk grommets/ports fitted where suitable</li>
+        </ul>
+        <h4>Materials Used</h4>
+        <ul class="materials-list">
+          <li>Flexible cable spines/snakes for height-adjustable desks</li>
+          <li>Professional label printer tape (durable, permanent)</li>
+          <li>Desk grommets for clean cable feed-through</li>
+        </ul>
+      </div>
+      <div class="card-cta"><a href="#contact">Book This Package</a></div>
+    </div>
+
+  </div>
+
+  <!-- BOLT-ONS -->
+  <div class="bolt-ons">
+    <h3>Optional Bolt-On Extras</h3>
+    <p>Add these to any package for extra value — priced per desk.</p>
+    <div class="bolt-grid">
+      <div class="bolt-item">
+        <div class="bolt-price">+£25 / desk</div>
+        <h4>Sit/Stand Desk Conversion</h4>
+        <p>Extra-long cables and spine risers fitted so the desk moves up and down freely without pulling.</p>
+      </div>
+      <div class="bolt-item">
+        <div class="bolt-price">+£15 / desk</div>
+        <h4>Tech Health Check</h4>
+        <p>We test for damaged cables or outdated power strips and replace them on the spot.</p>
+      </div>
+      <div class="bolt-item">
+        <div class="bolt-price">+£10 / desk</div>
+        <h4>Full Labelling & Asset Mapping</h4>
+        <p>Every cable identified and documented so your IT team can troubleshoot in seconds.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="section-label">Why Neat Cable Pro</div>
+  <h2 class="section-title light">Built Around Your Business</h2>
+  <div class="why-grid">
+    <ul class="why-list">
+      <li>
+        <div class="why-check">✓</div>
+        <div>
+          <h4>No Hourly Rates — Ever</h4>
+          <p>Fixed per-desk pricing means you know the exact cost upfront. No watching the clock, no surprise invoices.</p>
+        </div>
+      </li>
+      <li>
+        <div class="why-check">✓</div>
+        <div>
+          <h4>Local & Reliable</h4>
+          <p>Based in Yorkshire, we're on your doorstep — no long waits, no distant contractors who don't know the area.</p>
+        </div>
+      </li>
+      <li>
+        <div class="why-check">✓</div>
+        <div>
+          <h4>Minimal Disruption</h4>
+          <p>We work around your hours — early mornings, evenings, or weekends — so your team stays productive.</p>
+        </div>
+      </li>
+      <li>
+        <div class="why-check">✓</div>
+        <div>
+          <h4>Safer Workplace</h4>
+          <p>Messy cables are a trip hazard. We help you stay Health & Safety compliant and protect your team.</p>
+        </div>
+      </li>
+      <li>
+        <div class="why-check">✓</div>
+        <div>
+          <h4>Fully Insured</h4>
+          <p>All work is covered by Public Liability Insurance. Certificate available on request before any job begins.</p>
+        </div>
+      </li>
+    </ul>
+    <div class="why-visual">
+      <div class="quote-block">"A tidy desk is a tidy mind — and <span>tidy cables</span> make for a tidy business."</div>
+      <div class="coverage-badge">
+        <div class="pin">📍</div>
+        <div>
+          <strong>Serving West & North Yorkshire</strong>
+          <p>Leeds, Bradford, Wakefield, Halifax, Harrogate, Huddersfield & surrounding areas</p>
+        </div>
+      </div>
+      <div class="coverage-badge">
+        <div class="pin">🛡️</div>
+        <div>
+          <strong>Public Liability Insurance</strong>
+          <p>Fully insured for all on-site work. Certificate available on request.</p>
+        </div>
+      </div>
+      <div class="coverage-badge">
+        <div class="pin">📋</div>
+        <div>
+          <strong>Free Site Survey (10+ desks)</strong>
+          <p>For smaller jobs, simply send us "Before" photos and we'll confirm the right package.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="section-label">The Process</div>
+  <h2 class="section-title">How It Works</h2>
+  <p class="section-sub">Getting your office sorted is simple — four steps from first contact to a tidy, professional workspace.</p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h3>Send Before Photos</h3>
+      <p>Share photos of your current cable setup so we can assess and recommend the right package for your office.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h3>Get a Fixed Quote</h3>
+      <p>We'll send a clear, itemised quote with the exact cost — no hourly estimates, no hidden extras.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h3>We Come to You</h3>
+      <p>We arrive at an agreed time, including evenings and weekends, and get straight to work with minimal fuss.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <h3>Enjoy a Tidy Office</h3>
+      <p>We take After photos for your records and leave you with a clean, safe, professional workspace.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section id="gallery">
+  <div class="section-label">Results</div>
+  <h2 class="section-title">The Neat Cable Pro Difference</h2>
+  <p class="section-sub">The transformation speaks for itself — from chaotic cable sprawl to clean, professional results.</p>
+  <div class="gallery-note">📸 Real before & after photos from your jobs will replace these once you have them</div>
+
+  <div class="ba-grid">
+    <div class="ba-card">
+      <div class="ba-panels">
+        <div class="ba-panel before">
+          <div class="icon">🕸️</div>
+          <div class="label">Before</div>
+          <div class="desc">Floor spaghetti under 6 desks — trip hazard, dust trap</div>
+        </div>
+        <div class="ba-panel after">
+          <div class="icon">✅</div>
+          <div class="label">After</div>
+          <div class="desc">All cables bundled, lifted off carpet, H&S compliant</div>
+        </div>
+      </div>
+      <div class="ba-caption">
+        <h4>Accounting Firm — Leeds</h4>
+        <p>6 workstations completed in under 2 hours</p>
+        <span class="ba-tag">Essential Tidy</span>
+      </div>
+    </div>
+    <div class="ba-card">
+      <div class="ba-panels">
+        <div class="ba-panel before">
+          <div class="icon">⚡</div>
+          <div class="label">Before</div>
+          <div class="desc">Power blocks hanging from desks — looks unprofessional during client visits</div>
+        </div>
+        <div class="ba-panel after">
+          <div class="icon">🏆</div>
+          <div class="label">After</div>
+          <div class="desc">Steel mesh trays fitted, all adapters hidden and ventilated</div>
+        </div>
+      </div>
+      <div class="ba-caption">
+        <h4>Creative Agency — Bradford</h4>
+        <p>AV and power cables fully concealed in trays</p>
+        <span class="ba-tag">Pro Management</span>
+      </div>
+    </div>
+    <div class="ba-card">
+      <div class="ba-panels">
+        <div class="ba-panel before">
+          <div class="icon">😬</div>
+          <div class="label">Before</div>
+          <div class="desc">Sit-stand desks with cables pulling and snapping on movement</div>
+        </div>
+        <div class="ba-panel after">
+          <div class="icon">🎉</div>
+          <div class="label">After</div>
+          <div class="desc">Cable spines fitted, all leads labelled for IT, desks move freely</div>
+        </div>
+      </div>
+      <div class="ba-caption">
+        <h4>Tech Company — Harrogate</h4>
+        <p>20-desk office completed over one weekend</p>
+        <span class="ba-tag">Executive Hub</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Get In Touch</div>
+  <h2 class="section-title">Request a Free Quote</h2>
+  <p class="section-sub">Tell us about your office and we'll get back to you with a clear, fixed-rate quote — no obligation.</p>
+
+  <div class="contact-wrap">
+    <div class="contact-info">
+      <div class="info-item">
+        <div class="info-icon">📍</div>
+        <div>
+          <h4>Based In</h4>
+          <p>West & North Yorkshire</p>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">📧</div>
+        <div>
+          <h4>Email</h4>
+          <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="751d1019191a351b101401161417191005071a5b161a5b001e">[email&#160;protected]</a></p>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">📞</div>
+        <div>
+          <h4>Phone</h4>
+          <p>Add your number here</p>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">🕐</div>
+        <div>
+          <h4>Hours</h4>
+          <p>Mon–Sat, flexible to suit you</p>
+        </div>
+      </div>
+      <div class="insurance-note">
+        <span>🛡️</span>
+        <p><strong>Fully insured for all on-site work.</strong> Public Liability Insurance certificate available on request before any job begins.</p>
+      </div>
+    </div>
+
+    <form class="contact-form" name="enquiry" method="POST" data-netlify="true" action="/thank-you.html">
+      <input type="hidden" name="form-name" value="enquiry">
+      <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
+
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="Jane Smith" required>
+        </div>
+        <div class="form-group">
+          <label for="company">Company Name</label>
+          <input type="text" id="company" name="company" placeholder="Acme Ltd">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="jane@company.co.uk" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="07700 000000">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="package">Package Interested In</label>
+          <select id="package" name="package">
+            <option value="">Not sure yet</option>
+            <option>Essential Tidy — £55/desk</option>
+            <option>Pro Management — £110/desk</option>
+            <option>Executive Hub — £175/desk</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="size">Number of Desks</label>
+          <select id="size" name="desks">
+            <option value="">Select approximate size</option>
+            <option>5–10 desks</option>
+            <option>11–20 desks</option>
+            <option>21–30 desks</option>
+            <option>30+ desks</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="message">Tell us about your office</label>
+        <textarea id="message" name="message" placeholder="E.g. We have 10 desks with messy cables underneath — based in Leeds. Happy to send photos..."></textarea>
+      </div>
+      <button type="submit" class="form-submit">Send Enquiry →</button>
+      <p class="form-note">We typically respond within 1 working day. 5-desk minimum applies to all bookings.</p>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="logo">Neat Cable <span style="color:var(--accent)">Pro</span></div>
+  <p>Professional Cable Management · West & North Yorkshire</p>
+  <p style="margin-top:0.4rem">Fully Insured · Fixed-Rate Packages · 5-Desk Minimum</p>
+  <p style="margin-top:0.75rem">© 2025 Neat Cable Pro. All rights reserved.</p>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.form-submit');
+    btn.textContent = '✓ Enquiry Sent!';
+    btn.style.background = '#2d8a4e';
+    setTimeout(() => {
+      btn.textContent = 'Send Enquiry →';
+      btn.style.background = '';
+      e.target.reset();
+    }, 3000);
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.pricing-card, .why-list li, .ba-card, .info-item, 
