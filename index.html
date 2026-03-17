@@ -685,18 +685,36 @@
   <p style="margin-top:0.75rem">© 2025 Neat Cable Pro. All rights reserved.</p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  function handleSubmit(e) {
-    e.preventDefault();
-    const btn = e.target.querySelector('.form-submit');
-    btn.textContent = '✓ Enquiry Sent!';
-    btn.style.background = '#2d8a4e';
-    setTimeout(() => {
-      btn.textContent = 'Send Enquiry →';
-      btn.style.background = '';
-      e.target.reset();
-    }, 3000);
-  }
+<!-- EmailJS -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  // Initialise EmailJS
+  emailjs.init('lHpJybDL9CumGs1yh_09x');
+
+  // Intercept form submit — send auto-reply THEN let Netlify handle the rest
+  document.querySelector('form[name="enquiry"]').addEventListener('submit', function(e) {
+    const form = this;
+    const btn = form.querySelector('.form-submit');
+
+    // Grab values for EmailJS template
+    const templateParams = {
+      name:    form.querySelector('[name="name"]').value,
+      email:   form.querySelector('[name="email"]').value,
+      company: form.querySelector('[name="company"]').value || 'Not provided',
+      phone:   form.querySelector('[name="phone"]').value || 'Not provided',
+      package: form.querySelector('[name="package"]').value || 'Not selected',
+      desks:   form.querySelector('[name="desks"]').value || 'Not specified',
+      message: form.querySelector('[name="message"]').value || 'No message provided',
+    };
+
+    // Send auto-reply to customer via EmailJS (non-blocking)
+    emailjs.send('service_q527who', 'template_7qcu0kj', templateParams)
+      .catch(function(err) {
+        console.warn('EmailJS error:', err);
+      });
+
+    // Let the form submit normally to Netlify (handles your notification + redirect)
+  });
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
