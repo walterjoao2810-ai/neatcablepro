@@ -678,3 +678,148 @@
         <span class="ba-tag">Executive Hub</span>
       </div>
     </div> 
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Get In Touch</div>
+  <h2 class="section-title">Request a Free Quote</h2>
+  <p class="section-sub">Tell us about your office and we'll get back to you with a clear, fixed-rate quote — no obligation.</p>
+
+  <div class="contact-wrap">
+    <div class="contact-info">
+      <div class="info-item">
+        <div class="info-icon">📍</div>
+        <div>
+          <h4>Based In</h4>
+          <p>West &amp; North Yorkshire</p>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">📧</div>
+        <div>
+          <h4>Email</h4>
+          <p style="color:var(--navy);font-weight:500;">hello@neatcablepro.co.uk</p>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">📞</div>
+        <div>
+          <h4>Phone</h4>
+          <p><a href="tel:+447340779846" style="color:var(--navy);text-decoration:none;">+44 7340 779846</a></p>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">🕐</div>
+        <div>
+          <h4>Hours</h4>
+          <p>Mon–Sat, flexible to suit you</p>
+        </div>
+      </div>
+      <div class="insurance-note">
+        <span>🛡️</span>
+        <p><strong>Fully insured for all on-site work.</strong> Public Liability Insurance certificate available on request before any job begins.</p>
+      </div>
+    </div>
+
+    <form class="contact-form" name="enquiry" method="POST" data-netlify="true" action="/thank-you.html">
+      <input type="hidden" name="form-name" value="enquiry">
+      <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="Jane Smith" required>
+        </div>
+        <div class="form-group">
+          <label for="company">Company Name</label>
+          <input type="text" id="company" name="company" placeholder="Acme Ltd">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="jane@company.co.uk" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="07700 000000">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="package">Package Interested In</label>
+          <select id="package" name="package">
+            <option value="">Not sure yet</option>
+            <option>Essential Tidy — £55/desk</option>
+            <option>Pro Management — £110/desk</option>
+            <option>Executive Hub — £175/desk</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="size">Number of Desks</label>
+          <select id="size" name="desks">
+            <option value="">Select approximate size</option>
+            <option>5–10 desks</option>
+            <option>11–20 desks</option>
+            <option>21–30 desks</option>
+            <option>30+ desks</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="message">Tell us about your office</label>
+        <textarea id="message" name="message" placeholder="E.g. We have 10 desks with messy cables underneath — based in Leeds. Happy to send photos..."></textarea>
+      </div>
+      <button type="submit" class="form-submit">Send Enquiry →</button>
+      <p class="form-note">We typically respond within 1 working day. 5-desk minimum applies to all bookings.</p>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="logo">Neat Cable <span style="color:var(--accent)">Pro</span></div>
+  <p>Professional Cable Management · West &amp; North Yorkshire</p>
+  <p style="margin-top:0.4rem">Fully Insured · Fixed-Rate Packages · 5-Desk Minimum</p>
+  <p style="margin-top:0.75rem">© 2025 Neat Cable Pro. All rights reserved.</p>
+</footer>
+
+<!-- EmailJS -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  emailjs.init('lHpJybDL9CumGs1yh_09x');
+
+  document.querySelector('form[name="enquiry"]').addEventListener('submit', function(e) {
+    var form = this;
+    var templateParams = {
+      name:    form.querySelector('[name="name"]').value,
+      email:   form.querySelector('[name="email"]').value,
+      company: form.querySelector('[name="company"]').value || 'Not provided',
+      phone:   form.querySelector('[name="phone"]').value || 'Not provided',
+      package: form.querySelector('[name="package"]').value || 'Not selected',
+      desks:   form.querySelector('[name="desks"]').value || 'Not specified',
+      message: form.querySelector('[name="message"]').value || 'No message provided',
+    };
+    emailjs.send('service_q527who', 'template_7qcu0kj', templateParams)
+      .catch(function(err) { console.warn('EmailJS error:', err); });
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.pricing-card, .why-list li, .ba-card, .info-item, .step, .bolt-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
