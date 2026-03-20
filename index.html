@@ -165,6 +165,49 @@
   .step p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
 
   /* ── BEFORE/AFTER ── */
+  /* Slider */
+  .ba-slider-wrap { position: relative; height: 260px; overflow: hidden; }
+  .ba-slider { display: flex; height: 260px; transition: transform 0.5s cubic-bezier(.77,0,.18,1); will-change: transform; }
+  .ba-slide { min-width: 100%; width: 100%; height: 260px; position: relative; overflow: hidden; flex-shrink: 0; }
+  .ba-slide img { width: 100%; height: 260px; object-fit: cover; display: block; }
+  .ba-prev, .ba-next {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: rgba(15,31,56,0.75); color: white; border: none;
+    width: 34px; height: 34px; border-radius: 50%; font-size: 1rem;
+    cursor: pointer; z-index: 10; transition: background 0.2s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .ba-prev { left: 0.6rem; }
+  .ba-next { right: 0.6rem; }
+  .ba-prev:hover, .ba-next:hover { background: var(--accent); }
+  .ba-dots { position: absolute; bottom: 0.6rem; left: 50%; transform: translateX(-50%); display: flex; gap: 5px; }
+  .ba-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.45); cursor: pointer; transition: background 0.2s; }
+  .ba-dot.active { background: var(--accent); }
+
+  /* Placeholder cards */
+  .ba-card-no-photo .ba-placeholder {
+    height: 260px; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center;
+    background: var(--navy); padding: 2rem; gap: 0.75rem;
+  }
+  .ba-placeholder-icon { font-size: 2.5rem; }
+  .ba-placeholder h3 { font-family: 'DM Serif Display', serif; font-size: 1.2rem; color: var(--white); }
+  .ba-placeholder p { font-size: 0.85rem; color: var(--silver); line-height: 1.6; max-width: 240px; }
+  .ba-coming { font-size: 0.78rem; font-weight: 600; color: var(--accent); letter-spacing: 0.06em; margin-top: 0.25rem; }
+
+  /* ── ORIGINAL ── */
+  .ba-photo-panels { display: grid; grid-template-columns: 1fr 1fr; height: 260px; overflow: hidden; }
+  .ba-photo-half { position: relative; overflow: hidden; }
+  .ba-photo-half img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+  .ba-photo-half:hover img { transform: scale(1.05); }
+  .ba-photo-single { position: relative; height: 260px; overflow: hidden; }
+  .ba-photo-single img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+  .ba-photo-single:hover img { transform: scale(1.05); }
+  .ba-photo-label { position: absolute; bottom: 0.8rem; left: 0.8rem; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.7rem; border-radius: 12px; }
+  .before-label { background: rgba(176,58,58,0.9); color: white; }
+  .after-label { background: rgba(45,138,78,0.9); color: white; }
+
+  /* ── BEFORE/AFTER ORIGINAL ── */
   #gallery { background: var(--white); }
   .gallery-note { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--light-blue); color: var(--steel); font-size: 0.82rem; padding: 0.5rem 1rem; border-radius: 20px; margin-top: 1rem; margin-bottom: 2.5rem; }
   .ba-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
@@ -519,210 +562,119 @@
   <div class="gallery-note">📸 Real before & after photos from your jobs will replace these once you have them</div>
 
   <div class="ba-grid">
+
+    <!-- Card 1: Essential Tidy — sliding gallery -->
     <div class="ba-card">
-      <div class="ba-panels">
-        <div class="ba-panel before">
-          <div class="icon">🕸️</div>
-          <div class="label">Before</div>
-          <div class="desc">Floor spaghetti under 6 desks — trip hazard, dust trap</div>
+      <div style="position:relative;overflow:hidden;height:280px;background:#0f1f38;">
+
+        <!-- Slides wrapper -->
+        <div id="esSlider" style="display:flex;height:280px;transition:transform 0.45s cubic-bezier(.77,0,.18,1);will-change:transform;">
+
+          <div style="min-width:100%;height:280px;position:relative;flex-shrink:0;">
+            <img src="before1.jpg" style="width:100%;height:280px;object-fit:cover;display:block;" alt="Before 1">
+            <span style="position:absolute;bottom:10px;left:10px;background:rgba(176,58,58,0.92);color:#fff;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:12px;">Before</span>
+          </div>
+
+          <div style="min-width:100%;height:280px;position:relative;flex-shrink:0;">
+            <img src="after1.jpg" style="width:100%;height:280px;object-fit:cover;display:block;" alt="After 1">
+            <span style="position:absolute;bottom:10px;left:10px;background:rgba(45,138,78,0.92);color:#fff;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:12px;">After</span>
+          </div>
+
+          <div style="min-width:100%;height:280px;position:relative;flex-shrink:0;">
+            <img src="before2.jpg" style="width:100%;height:280px;object-fit:cover;display:block;" alt="Before 2">
+            <span style="position:absolute;bottom:10px;left:10px;background:rgba(176,58,58,0.92);color:#fff;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:12px;">Before</span>
+          </div>
+
+          <div style="min-width:100%;height:280px;position:relative;flex-shrink:0;">
+            <img src="after2.jpg" style="width:100%;height:280px;object-fit:cover;display:block;" alt="After 2">
+            <span style="position:absolute;bottom:10px;left:10px;background:rgba(45,138,78,0.92);color:#fff;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:12px;">After</span>
+          </div>
+
+          <div style="min-width:100%;height:280px;position:relative;flex-shrink:0;">
+            <img src="before3.jpg" style="width:100%;height:280px;object-fit:cover;display:block;" alt="Before 3">
+            <span style="position:absolute;bottom:10px;left:10px;background:rgba(176,58,58,0.92);color:#fff;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:12px;">Before</span>
+          </div>
+
+          <div style="min-width:100%;height:280px;position:relative;flex-shrink:0;">
+            <img src="after3.jpg" style="width:100%;height:280px;object-fit:cover;display:block;" alt="After 3">
+            <span style="position:absolute;bottom:10px;left:10px;background:rgba(45,138,78,0.92);color:#fff;font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:12px;">After</span>
+          </div>
+
         </div>
-        <div class="ba-panel after">
-          <div class="icon">✅</div>
-          <div class="label">After</div>
-          <div class="desc">All cables bundled, lifted off carpet, H&S compliant</div>
-        </div>
+
+        <!-- Arrows -->
+        <button onclick="esPrev()" style="position:absolute;left:8px;top:50%;transform:translateY(-50%);background:rgba(15,31,56,0.82);color:#fff;border:none;width:34px;height:34px;border-radius:50%;font-size:16px;cursor:pointer;z-index:10;display:flex;align-items:center;justify-content:center;transition:background .2s;" onmouseover="this.style.background='#4a9fd4'" onmouseout="this.style.background='rgba(15,31,56,0.82)'">&#8592;</button>
+        <button onclick="esNext()" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);background:rgba(15,31,56,0.82);color:#fff;border:none;width:34px;height:34px;border-radius:50%;font-size:16px;cursor:pointer;z-index:10;display:flex;align-items:center;justify-content:center;transition:background .2s;" onmouseover="this.style.background='#4a9fd4'" onmouseout="this.style.background='rgba(15,31,56,0.82)'">&#8594;</button>
+
+        <!-- Dots -->
+        <div id="esDots" style="position:absolute;bottom:8px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:10;"></div>
       </div>
+
       <div class="ba-caption">
-        <h4>Accounting Firm — Leeds</h4>
-        <p>6 workstations completed in under 2 hours</p>
+        <h4>Real Results — West &amp; North Yorkshire</h4>
+        <p>Every cable cleared, bundled and secured. Floor completely clear.</p>
         <span class="ba-tag">Essential Tidy</span>
       </div>
     </div>
-    <div class="ba-card">
-      <div class="ba-panels">
-        <div class="ba-panel before">
-          <div class="icon">⚡</div>
-          <div class="label">Before</div>
-          <div class="desc">Power blocks hanging from desks — looks unprofessional during client visits</div>
-        </div>
-        <div class="ba-panel after">
-          <div class="icon">🏆</div>
-          <div class="label">After</div>
-          <div class="desc">Steel mesh trays fitted, all adapters hidden and ventilated</div>
-        </div>
+
+    <script>
+    (function(){
+      var idx = 0;
+      var total = 6;
+      var slider = document.getElementById('esSlider');
+      var dotsEl = document.getElementById('esDots');
+
+      // Build dots
+      for(var i=0;i<total;i++){
+        var d = document.createElement('span');
+        d.style.cssText = 'width:8px;height:8px;border-radius:50%;cursor:pointer;transition:background .2s;display:inline-block;';
+        d.style.background = i===0 ? '#4a9fd4' : 'rgba(255,255,255,0.4)';
+        d.setAttribute('data-i', i);
+        d.onclick = function(){ goTo(+this.getAttribute('data-i')); };
+        dotsEl.appendChild(d);
+      }
+
+      function goTo(n){
+        idx = (n + total) % total;
+        slider.style.transform = 'translateX(-' + (idx * 100) + '%)';
+        var dots = dotsEl.querySelectorAll('span');
+        dots.forEach(function(d,i){ d.style.background = i===idx ? '#4a9fd4' : 'rgba(255,255,255,0.4)'; });
+      }
+
+      window.esNext = function(){ goTo(idx+1); };
+      window.esPrev = function(){ goTo(idx-1); };
+
+      // Auto advance every 3.5s
+      setInterval(function(){ goTo(idx+1); }, 3500);
+    })();
+    </script>
+
+    <!-- Card 2: Pro Management — placeholder -->
+    <div class="ba-card ba-card-no-photo">
+      <div class="ba-placeholder">
+        <div class="ba-placeholder-icon">🔌</div>
+        <h3>The Pro Management</h3>
+        <p>Steel mesh cable tray installation, power strips mounted and hidden inside tray, all adapters fully concealed.</p>
+        <div class="ba-coming">📸 Photos coming soon</div>
       </div>
       <div class="ba-caption">
-        <h4>Creative Agency — Bradford</h4>
-        <p>AV and power cables fully concealed in trays</p>
+        <h4>Tray Installation — Yorkshire</h4>
+        <p>Full tray hardware fitted under each desk, zero cables visible</p>
         <span class="ba-tag">Pro Management</span>
       </div>
     </div>
-    <div class="ba-card">
-      <div class="ba-panels">
-        <div class="ba-panel before">
-          <div class="icon">😬</div>
-          <div class="label">Before</div>
-          <div class="desc">Sit-stand desks with cables pulling and snapping on movement</div>
-        </div>
-        <div class="ba-panel after">
-          <div class="icon">🎉</div>
-          <div class="label">After</div>
-          <div class="desc">Cable spines fitted, all leads labelled for IT, desks move freely</div>
-        </div>
+
+    <!-- Card 3: Executive Hub — placeholder -->
+    <div class="ba-card ba-card-no-photo">
+      <div class="ba-placeholder">
+        <div class="ba-placeholder-icon">🏆</div>
+        <h3>The Executive Hub</h3>
+        <p>Cable spine installation for sit-stand desks, full labelling of every cable, IT asset mapping for easy maintenance.</p>
+        <div class="ba-coming">📸 Photos coming soon</div>
       </div>
       <div class="ba-caption">
-        <h4>Tech Company — Harrogate</h4>
-        <p>20-desk office completed over one weekend</p>
+        <h4>Sit-Stand Desk Setup — Yorkshire</h4>
+        <p>Cable spines fitted, every lead labelled, desks move freely</p>
         <span class="ba-tag">Executive Hub</span>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="section-label">Get In Touch</div>
-  <h2 class="section-title">Request a Free Quote</h2>
-  <p class="section-sub">Tell us about your office and we'll get back to you with a clear, fixed-rate quote — no obligation.</p>
-
-  <div class="contact-wrap">
-    <div class="contact-info">
-      <div class="info-item">
-        <div class="info-icon">📍</div>
-        <div>
-          <h4>Based In</h4>
-          <p>West & North Yorkshire</p>
-        </div>
-      </div>
-      <div class="info-item">
-        <div class="info-icon">📧</div>
-        <div>
-          <h4>Email</h4>
-          <p>hello@neatcablepro.co.uk</p>
-        </div>
-      </div>
-      <div class="info-item">
-        <div class="info-icon">📞</div>
-        <div>
-          <h4>Phone</h4>
-          <p><a href="tel:+447340779846" style="color:var(--navy);text-decoration:none;">+44 7340 779846</a></p>
-        </div>
-      </div>
-      <div class="info-item">
-        <div class="info-icon">🕐</div>
-        <div>
-          <h4>Hours</h4>
-          <p>Mon–Sat, flexible to suit you</p>
-        </div>
-      </div>
-      <div class="insurance-note">
-        <span>🛡️</span>
-        <p><strong>Fully insured for all on-site work.</strong> Public Liability Insurance certificate available on request before any job begins.</p>
-      </div>
-    </div>
-
-    <form class="contact-form" name="enquiry" method="POST" data-netlify="true" action="/thank-you.html">
-      <input type="hidden" name="form-name" value="enquiry">
-      <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
-
-
-      <div class="form-row">
-        <div class="form-group">
-          <label for="name">Your Name</label>
-          <input type="text" id="name" name="name" placeholder="Jane Smith" required>
-        </div>
-        <div class="form-group">
-          <label for="company">Company Name</label>
-          <input type="text" id="company" name="company" placeholder="Acme Ltd">
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" placeholder="jane@company.co.uk" required>
-        </div>
-        <div class="form-group">
-          <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" name="phone" placeholder="07700 000000">
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label for="package">Package Interested In</label>
-          <select id="package" name="package">
-            <option value="">Not sure yet</option>
-            <option>Essential Tidy — £55/desk</option>
-            <option>Pro Management — £110/desk</option>
-            <option>Executive Hub — £175/desk</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="size">Number of Desks</label>
-          <select id="size" name="desks">
-            <option value="">Select approximate size</option>
-            <option>5–10 desks</option>
-            <option>11–20 desks</option>
-            <option>21–30 desks</option>
-            <option>30+ desks</option>
-          </select>
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="message">Tell us about your office</label>
-        <textarea id="message" name="message" placeholder="E.g. We have 10 desks with messy cables underneath — based in Leeds. Happy to send photos..."></textarea>
-      </div>
-      <button type="submit" class="form-submit">Send Enquiry →</button>
-      <p class="form-note">We typically respond within 1 working day. 5-desk minimum applies to all bookings.</p>
-    </form>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="logo">Neat Cable <span style="color:var(--accent)">Pro</span></div>
-  <p>Professional Cable Management · West & North Yorkshire</p>
-  <p style="margin-top:0.4rem">Fully Insured · Fixed-Rate Packages · 5-Desk Minimum</p>
-  <p style="margin-top:0.75rem">© 2025 Neat Cable Pro. All rights reserved.</p>
-</footer>
-
-<!-- EmailJS -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script>
-  // Initialise EmailJS
-  emailjs.init('lHpJybDL9CumGs1yh_09x');
-
-  // Intercept form submit — send auto-reply THEN let Netlify handle the rest
-  document.querySelector('form[name="enquiry"]').addEventListener('submit', function(e) {
-    const form = this;
-    const btn = form.querySelector('.form-submit');
-
-    // Grab values for EmailJS template
-    const templateParams = {
-      name:    form.querySelector('[name="name"]').value,
-      email:   form.querySelector('[name="email"]').value,
-      company: form.querySelector('[name="company"]').value || 'Not provided',
-      phone:   form.querySelector('[name="phone"]').value || 'Not provided',
-      package: form.querySelector('[name="package"]').value || 'Not selected',
-      desks:   form.querySelector('[name="desks"]').value || 'Not specified',
-      message: form.querySelector('[name="message"]').value || 'No message provided',
-    };
-
-    // Send auto-reply to customer via EmailJS (non-blocking)
-    emailjs.send('service_q527who', 'template_7qcu0kj', templateParams)
-      .catch(function(err) {
-        console.warn('EmailJS error:', err);
-      });
-
-    // Let the form submit normally to Netlify (handles your notification + redirect)
-  });
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.style.opacity = '1';
-        e.target.style.transform = 'translateY(0)';
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.pricing-card, .why-list li, .ba-card, .info-item, 
+    </div> 
