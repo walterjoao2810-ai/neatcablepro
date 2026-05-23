@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Partner With Neat Cable Pro | IT Workstation Commissioning for Movers & Fit-Out Firms</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0f1f38;
+    --steel: #1e3a5f;
+    --mid: #2e5986;
+    --accent: #4a9fd4;
+    --light-blue: #d6e8f5;
+    --silver: #b0bec5;
+    --off-white: #f4f7fb;
+    --white: #ffffff;
+    --text: #1a2a3a;
+    --muted: #6b7f8e;
+    --green: #2d8a4e;
+    --amber: #e07b2a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--off-white); overflow-x: hidden; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(15,31,56,0.96); backdrop-filter: blur(12px);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.1rem 5%; border-bottom: 1px solid rgba(74,159,212,0.2);
+  }
+  .logo { font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: var(--white); text-decoration: none; }
+  .logo span { color: var(--accent); }
+  .nav-right { display: flex; align-items: center; gap: 1.5rem; }
+  .nav-back { color: var(--silver); text-decoration: none; font-size: 0.88rem; font-weight: 500; letter-spacing: 0.04em; transition: color 0.2s; }
+  .nav-back:hover { color: var(--accent); }
+  .nav-cta { background: var(--accent); color: var(--white); padding: 0.5rem 1.2rem; border-radius: 4px; font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: background 0.2s; }
+  .nav-cta:hover { background: var(--mid); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 88vh;
+    background: var(--navy);
+    display: flex; align-items: center;
+    position: relative; overflow: hidden;
+    padding: 9rem 5% 5rem;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 55% 65% at 85% 45%, rgba(46,89,134,0.5) 0%, transparent 70%),
+      radial-gradient(ellipse 35% 40% at 5% 85%, rgba(74,159,212,0.1) 0%, transparent 60%);
+  }
+  /* diagonal accent stripe */
+  .hero-stripe {
+    position: absolute; top: 0; right: 0;
+    width: 42%; height: 100%;
+    background: linear-gradient(135deg, transparent 40%, rgba(74,159,212,0.06) 100%);
+    border-left: 1px solid rgba(74,159,212,0.12);
+    pointer-events: none;
+  }
+  .hero-content { position: relative; max-width: 640px; }
+  .partner-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: rgba(74,159,212,0.12); border: 1px solid rgba(74,159,212,0.35);
+    color: var(--accent); font-size: 0.76rem; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 0.4rem 0.9rem; border-radius: 20px; margin-bottom: 1.6rem;
+    animation: fadeUp 0.7s ease both;
+  }
+  .partner-badge::before { content: '🤝'; font-size: 0.9rem; }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+    line-height: 1.12; color: var(--white); margin-bottom: 1.4rem;
+    animation: fadeUp 0.7s 0.15s ease both;
+  }
+  .hero h1 em { color: var(--accent); font-style: italic; }
+  .hero-sub {
+    font-size: 1.1rem; line-height: 1.75; color: var(--silver);
+    font-weight: 300; margin-bottom: 2.4rem;
+    animation: fadeUp 0.7s 0.3s ease both;
+  }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 0.7s 0.45s ease both; }
+  .btn-primary { background: var(--accent); color: var(--white); padding: 0.85rem 2rem; border-radius: 5px; font-size: 0.95rem; font-weight: 600; text-decoration: none; transition: all 0.25s; border: 2px solid var(--accent); }
+  .btn-primary:hover { background: transparent; color: var(--accent); }
+  .btn-secondary { border: 2px solid rgba(74,159,212,0.4); color: var(--silver); padding: 0.85rem 2rem; border-radius: 5px; font-size: 0.95rem; font-weight: 500; text-decoration: none; transition: all 0.25s; }
+  .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* proof strip */
+  .proof-strip {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: rgba(30,58,95,0.7); backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(74,159,212,0.15);
+    display: flex; justify-content: center; gap: 3rem;
+    padding: 1.2rem 5%; flex-wrap: wrap;
+    animation: fadeUp 0.7s 0.6s ease both;
+  }
+  .proof-item { display: flex; align-items: center; gap: 0.6rem; }
+  .proof-icon { font-size: 1.1rem; }
+  .proof-text { font-size: 0.85rem; color: var(--silver); font-weight: 500; }
+  .proof-text strong { color: var(--white); }
+
+  /* ── PROBLEM SECTION ── */
+  .problem {
+    background: var(--white);
+    padding: 5rem 5%;
+  }
+  .problem-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .section-label {
+    font-size: 0.75rem; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: 0.8rem;
+  }
+  .problem h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    line-height: 1.2; color: var(--navy); margin-bottom: 1.2rem;
+  }
+  .problem p { color: var(--muted); line-height: 1.75; margin-bottom: 1rem; font-size: 1rem; }
+  .pain-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+  .pain-list li {
+    display: flex; align-items: flex-start; gap: 0.9rem;
+    background: #fff5f0; border: 1px solid #ffd8be;
+    border-left: 4px solid var(--amber);
+    border-radius: 6px; padding: 0.9rem 1rem;
+  }
+  .pain-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 0.05rem; }
+  .pain-list li p { margin: 0; color: var(--text); font-size: 0.93rem; }
+  .pain-list li strong { color: var(--navy); }
+
+  /* ── HOW IT WORKS ── */
+  .how {
+    background: var(--off-white);
+    padding: 5rem 5%;
+  }
+  .how-inner { max-width: 1100px; margin: 0 auto; }
+  .how h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    color: var(--navy); text-align: center; margin-bottom: 0.6rem;
+  }
+  .how-sub { text-align: center; color: var(--muted); margin-bottom: 3.5rem; font-size: 1rem; }
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+  .step {
+    background: var(--white); border-radius: 10px;
+    padding: 1.8rem 1.4rem; text-align: center;
+    border: 1px solid #e2ecf4;
+    position: relative;
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.25s;
+  }
+  .step.visible { opacity: 1; transform: translateY(0); }
+  .step:hover { box-shadow: 0 8px 28px rgba(74,159,212,0.12); }
+  .step-num {
+    width: 2.4rem; height: 2.4rem;
+    background: var(--accent); color: var(--white);
+    border-radius: 50%; font-size: 0.9rem; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1rem;
+  }
+  .step-icon { font-size: 2rem; margin-bottom: 0.8rem; }
+  .step h3 { font-size: 1rem; font-weight: 600; color: var(--navy); margin-bottom: 0.5rem; }
+  .step p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+  /* connector line between steps */
+  .steps-wrap { position: relative; }
+  .steps-wrap::after {
+    content: '';
+    position: absolute; top: 3.5rem; left: 12.5%; right: 12.5%; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0.25; pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── WHAT WE COVER ── */
+  .coverage {
+    background: var(--navy); padding: 5rem 5%; color: var(--white);
+  }
+  .coverage-inner { max-width: 1100px; margin: 0 auto; }
+  .coverage .section-label { color: rgba(74,159,212,0.8); }
+  .coverage h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    color: var(--white); margin-bottom: 0.5rem;
+  }
+  .coverage-sub { color: var(--silver); margin-bottom: 3rem; font-size: 1rem; }
+  .coverage-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .cov-card {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(74,159,212,0.2);
+    border-radius: 10px; padding: 1.6rem;
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease, background 0.2s;
+  }
+  .cov-card.visible { opacity: 1; transform: translateY(0); }
+  .cov-card:hover { background: rgba(74,159,212,0.08); }
+  .cov-icon { font-size: 1.8rem; margin-bottom: 0.8rem; }
+  .cov-card h3 { font-size: 0.97rem; font-weight: 600; color: var(--white); margin-bottom: 0.4rem; }
+  .cov-card p { font-size: 0.87rem; color: var(--silver); line-height: 1.6; }
+  .sign-off-note {
+    margin-top: 2.5rem;
+    background: rgba(74,159,212,0.1); border: 1px solid rgba(74,159,212,0.3);
+    border-radius: 10px; padding: 1.4rem 1.6rem;
+    display: flex; align-items: flex-start; gap: 1rem;
+  }
+  .sign-off-note .icon { font-size: 1.6rem; flex-shrink: 0; }
+  .sign-off-note p { font-size: 0.95rem; color: var(--silver); line-height: 1.6; }
+  .sign-off-note strong { color: var(--white); }
+
+  /* ── WHY PARTNER ── */
+  .why {
+    background: var(--white); padding: 5rem 5%;
+  }
+  .why-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .why h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    color: var(--navy); margin-bottom: 1rem;
+  }
+  .why p { color: var(--muted); line-height: 1.75; margin-bottom: 2rem; }
+  .benefit-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+  .benefit-list li {
+    display: flex; align-items: flex-start; gap: 0.9rem;
+  }
+  .benefit-check {
+    width: 1.5rem; height: 1.5rem; flex-shrink: 0;
+    background: rgba(45,138,78,0.12); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--green); font-size: 0.8rem; font-weight: 700;
+    margin-top: 0.1rem;
+  }
+  .benefit-list li div h4 { font-size: 0.95rem; font-weight: 600; color: var(--navy); margin-bottom: 0.2rem; }
+  .benefit-list li div p { font-size: 0.88rem; color: var(--muted); margin: 0; line-height: 1.55; }
+
+  /* rate card */
+  .rate-card {
+    background: var(--navy); border-radius: 14px;
+    padding: 2.2rem; position: relative; overflow: hidden;
+  }
+  .rate-card::before {
+    content: '';
+    position: absolute; top: -40%; right: -20%;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(74,159,212,0.2) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .rate-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+  .rate-title { font-family: 'DM Serif Display', serif; font-size: 1.5rem; color: var(--white); margin-bottom: 0.5rem; }
+  .rate-amount { font-size: 3rem; font-family: 'DM Serif Display', serif; color: var(--white); line-height: 1; margin-bottom: 0.3rem; }
+  .rate-amount span { font-size: 1.1rem; color: var(--silver); font-family: 'DM Sans', sans-serif; font-weight: 300; }
+  .rate-note { font-size: 0.85rem; color: var(--silver); margin-bottom: 1.6rem; line-height: 1.5; }
+  .rate-includes { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 2rem; }
+  .rate-includes li { display: flex; align-items: center; gap: 0.6rem; font-size: 0.88rem; color: var(--silver); }
+  .rate-includes li::before { content: '✓'; color: var(--accent); font-weight: 700; }
+  .rate-cta {
+    display: block; text-align: center;
+    background: var(--accent); color: var(--white);
+    padding: 0.9rem; border-radius: 6px; font-weight: 600;
+    text-decoration: none; font-size: 0.95rem;
+    transition: background 0.2s;
+  }
+  .rate-cta:hover { background: var(--mid); }
+  .rate-hardware {
+    margin-top: 1.2rem; padding: 1rem;
+    background: rgba(255,255,255,0.05); border-radius: 6px;
+    font-size: 0.82rem; color: var(--silver); line-height: 1.5;
+  }
+  .rate-hardware strong { color: var(--white); }
+
+  /* ── CONTACT ── */
+  .contact {
+    background: var(--off-white); padding: 5rem 5%;
+  }
+  .contact-inner { max-width: 900px; margin: 0 auto; }
+  .contact h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    color: var(--navy); margin-bottom: 0.6rem; text-align: center;
+  }
+  .contact-sub { text-align: center; color: var(--muted); margin-bottom: 3rem; }
+  .contact-form {
+    background: var(--white); border-radius: 12px;
+    padding: 2.5rem; border: 1px solid #e2ecf4;
+    box-shadow: 0 4px 20px rgba(15,31,56,0.06);
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-bottom: 1.2rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-group label { font-size: 0.82rem; font-weight: 600; color: var(--navy); letter-spacing: 0.04em; text-transform: uppercase; }
+  .form-group input, .form-group select, .form-group textarea {
+    padding: 0.75rem 1rem; border: 1.5px solid #d0dde8; border-radius: 6px;
+    font-family: 'DM Sans', sans-serif; font-size: 0.93rem; color: var(--text);
+    background: var(--off-white); transition: border-color 0.2s;
+    outline: none;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--accent); background: var(--white); }
+  .form-group textarea { min-height: 110px; resize: vertical; }
+  .form-submit {
+    width: 100%; background: var(--accent); color: var(--white);
+    padding: 1rem; border: none; border-radius: 6px;
+    font-size: 1rem; font-weight: 600; cursor: pointer;
+    transition: background 0.2s; margin-top: 1.2rem;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .form-submit:hover { background: var(--mid); }
+  .direct-contact {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem;
+  }
+  .direct-item {
+    display: flex; align-items: center; gap: 0.8rem;
+    background: var(--white); border: 1px solid #e2ecf4; border-radius: 8px;
+    padding: 1rem 1.2rem;
+  }
+  .direct-icon { font-size: 1.3rem; }
+  .direct-item h4 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); font-weight: 600; margin-bottom: 0.15rem; }
+  .direct-item a, .direct-item p { font-size: 0.92rem; color: var(--navy); font-weight: 500; text-decoration: none; }
+  .direct-item a:hover { color: var(--accent); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy); color: var(--silver);
+    text-align: center; padding: 2.5rem 5%;
+    font-size: 0.85rem; line-height: 1.8;
+    border-top: 1px solid rgba(74,159,212,0.15);
+  }
+  footer .logo { display: inline-block; font-size: 1.2rem; margin-bottom: 0.4rem; }
+  footer a { color: var(--accent); text-decoration: none; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 860px) {
+    .problem-inner, .why-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .steps { grid-template-columns: 1fr 1fr; }
+    .coverage-grid { grid-template-columns: 1fr 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .direct-contact { grid-template-columns: 1fr; }
+    .proof-strip { gap: 1.2rem; }
+    .steps-wrap::after { display: none; }
+  }
+  @media (max-width: 560px) {
+    .steps { grid-template-columns: 1fr; }
+    .coverage-grid { grid-template-columns: 1fr; }
+    nav ul { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo">Neat Cable <span>Pro</span></a>
+  <div class="nav-right">
+    <a href="index.html" class="nav-back">← Main Site</a>
+    <a href="#contact" class="nav-cta">Partner With Us</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-stripe"></div>
+  <div class="hero-content">
+    <div class="partner-badge">For Movers & Fit-Out Firms</div>
+    <h1>You move the office.<br><em>We make sure the IT works.</em></h1>
+    <p class="hero-sub">
+      Neat Cable Pro is the IT workstation specialist for office relocations across West &amp; North Yorkshire. We test, fix, and sign off every desk — so your clients walk in on day one and everything works.
+    </p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Start a Conversation →</a>
+      <a href="#how" class="btn-secondary">See How It Works</a>
+    </div>
+  </div>
+  <div class="proof-strip">
+    <div class="proof-item"><span class="proof-icon">📋</span><span class="proof-text"><strong>Signed sign-off report</strong> on every job</span></div>
+    <div class="proof-item"><span class="proof-icon">🛡️</span><span class="proof-text"><strong>Fully insured</strong> for all on-site work</span></div>
+    <div class="proof-item"><span class="proof-icon">📍</span><span class="proof-text"><strong>Yorkshire-based</strong> — fast turnaround</span></div>
+    <div class="proof-item"><span class="proof-icon">🔌</span><span class="proof-text"><strong>IT-qualified</strong> desktop support specialist</span></div>
+  </div>
+</section>
+
+<!-- THE PROBLEM -->
+<section class="problem">
+  <div class="problem-inner">
+    <div>
+      <div class="section-label">The Problem</div>
+      <h2>Office moves go wrong at the desk level</h2>
+      <p>Your team handles logistics brilliantly — furniture, boxes, building access. But reconnecting IT equipment is a different skill set, and when it goes wrong, your client's first day in their new office is a disaster.</p>
+      <p>This is the gap we close.</p>
+    </div>
+    <ul class="pain-list">
+      <li>
+        <span class="pain-icon">🖥️</span>
+        <p><strong>Monitors with no image</strong> — HDMI plugged into port 2, but displays default to port 1. Easy to miss, expensive in wasted time.</p>
+      </li>
+      <li>
+        <span class="pain-icon">💥</span>
+        <p><strong>Damaged ports and docking stations</strong> — cables routed too tight create tension that cracks display ports and breaks USB-C docks.</p>
+      </li>
+      <li>
+        <span class="pain-icon">🔀</span>
+        <p><strong>Wrong connections throughout</strong> — peripherals plugged into the wrong docking stations, displays on the wrong inputs, peripherals not working.</p>
+      </li>
+      <li>
+        <span class="pain-icon">📵</span>
+        <p><strong>No one to blame but you</strong> — your client doesn't know who connected what. If it doesn't work, the move company gets the call.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="how-inner">
+    <div class="section-label" style="text-align:center;">The Process</div>
+    <h2>Simple to add to any project</h2>
+    <p class="how-sub">We slot into your existing workflow — no extra project management on your side.</p>
+    <div class="steps-wrap">
+      <div class="steps">
+        <div class="step">
+          <div class="step-icon">📞</div>
+          <div class="step-num">1</div>
+          <h3>Brief Us</h3>
+          <p>Share the site, desk count, and move date. We'll confirm availability and provide a day-rate quote.</p>
+        </div>
+        <div class="step">
+          <div class="step-icon">🏢</div>
+          <div class="step-num">2</div>
+          <h3>We Attend On-Site</h3>
+          <p>We arrive once furniture is in place and systematically test every workstation desk by desk.</p>
+        </div>
+        <div class="step">
+          <div class="step-icon">🔧</div>
+          <div class="step-num">3</div>
+          <h3>Fix & Commission</h3>
+          <p>Faults are corrected on the spot — wrong inputs, strained cables, damaged ports, misconnected peripherals.</p>
+        </div>
+        <div class="step">
+          <div class="step-icon">📋</div>
+          <div class="step-num">4</div>
+          <h3>Sign-Off Report</h3>
+          <p>A written report covering every desk tested, faults found, fixes made. Your client gets proof it all works.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE COVER -->
+<section class="coverage">
+  <div class="coverage-inner">
+    <div class="section-label">What We Test</div>
+    <h2>Every desk. Every connection.</h2>
+    <p class="coverage-sub">Standard workstation setup: dual monitors on arms, docking station, keyboard, mouse.</p>
+    <div class="coverage-grid">
+      <div class="cov-card">
+        <div class="cov-icon">🖥️</div>
+        <h3>Monitor Inputs</h3>
+        <p>Both displays tested on the correct HDMI or DisplayPort inputs. Resolution and refresh rate confirmed.</p>
+      </div>
+      <div class="cov-card">
+        <div class="cov-icon">🔌</div>
+        <h3>Docking Station</h3>
+        <p>Power delivery, USB hub, display output, and network passthrough all verified. Replacement fitted if damaged.</p>
+      </div>
+      <div class="cov-card">
+        <div class="cov-icon">🖱️</div>
+        <h3>Peripherals</h3>
+        <p>Keyboard and mouse confirmed working — correct desk, correct pairing, correct USB receiver.</p>
+      </div>
+      <div class="cov-card">
+        <div class="cov-icon">📐</div>
+        <h3>Cable Management</h3>
+        <p>All cables routed cleanly. No tension on ports. Monitor arms move freely without pulling connections.</p>
+      </div>
+      <div class="cov-card">
+        <div class="cov-icon">🔍</div>
+        <h3>Port Condition</h3>
+        <p>Physical inspection of display ports, USB-C, and docking ports for damage caused during transit or reconnection.</p>
+      </div>
+      <div class="cov-card">
+        <div class="cov-icon">✅</div>
+        <h3>Full Desk Sign-Off</h3>
+        <p>Each desk logged as passed or flagged. Any hardware replaced on-site is documented with cost for your records.</p>
+      </div>
+    </div>
+    <div class="sign-off-note">
+      <span class="icon">📋</span>
+      <p><strong>Every job ends with a written sign-off report.</strong> Desk count, faults found, fixes made, hardware replaced. Your client gets a document they can file — and you get proof the job was completed to spec. That's the piece that sets this apart from a mover "having a go" at plugging things in.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY PARTNER -->
+<section class="why">
+  <div class="why-inner">
+    <div>
+      <div class="section-label">Why Partner</div>
+      <h2>Protect your reputation. Expand your offer.</h2>
+      <p>Adding IT commissioning to your service means your clients move into a working office, not a frustrating one. One call to us is all it takes — we handle everything at the desk level, you focus on what you do best.</p>
+      <ul class="benefit-list">
+        <li>
+          <div class="benefit-check">✓</div>
+          <div>
+            <h4>Zero IT liability for your team</h4>
+            <p>We take full responsibility for workstation testing and commissioning. Any hardware we replace is documented and transparent.</p>
+          </div>
+        </li>
+        <li>
+          <div class="benefit-check">✓</div>
+          <div>
+            <h4>A stronger offer to your clients</h4>
+            <p>Offer "IT-ready sign-off" as part of your move package — a genuine differentiator that justifies your quote.</p>
+          </div>
+        </li>
+        <li>
+          <div class="benefit-check">✓</div>
+          <div>
+            <h4>No extra coordination burden</h4>
+            <p>Brief us once. We attend, we work, we report. No hand-holding required from your project managers.</p>
+          </div>
+        </li>
+        <li>
+          <div class="benefit-check">✓</div>
+          <div>
+            <h4>Local and available</h4>
+            <p>Based in Yorkshire, we can turn around quickly for jobs across Leeds, Bradford, Wakefield, Harrogate and beyond.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="rate-card">
+        <div class="rate-label">Partner Pricing</div>
+        <div class="rate-title">Day Rate</div>
+        <div class="rate-amount">£300 <span>/ day</span></div>
+        <p class="rate-note">All-inclusive for on-site workstation testing, commissioning, and a full written sign-off report. No hidden fees.</p>
+        <ul class="rate-includes">
+          <li>Full workstation testing — every desk</li>
+          <li>On-the-spot fault fixing and re-commissioning</li>
+          <li>Professional cable management at each station</li>
+          <li>Written sign-off report at job completion</li>
+          <li>Direct communication with your project lead</li>
+          <li>Cover across West &amp; North Yorkshire</li>
+        </ul>
+        <a href="#contact" class="rate-cta">Get in Touch to Discuss →</a>
+        <div class="rate-hardware">
+          <strong>Hardware note:</strong> Any replacement equipment required (docking stations, cables, etc.) is quoted separately at cost + a small handling margin. You'll always approve before we proceed.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="section-label" style="text-align:center;">Get In Touch</div>
+    <h2>Let's talk about your next project</h2>
+    <p class="contact-sub">Tell us about the move — desk count, location, and timeframe. We'll come back to you within one working day.</p>
+
+    <div class="contact-form">
+      <form name="partner-enquiry" method="POST" data-netlify="true" action="/thank-you.html">
+        <input type="hidden" name="form-name" value="partner-enquiry">
+        <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="James Hartley" required>
+          </div>
+          <div class="form-group">
+            <label for="company">Company Name</label>
+            <input type="text" id="company" name="company" placeholder="BMG Office Moves Ltd" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="james@company.co.uk" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="07700 000000">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="desks">Number of Desks</label>
+            <select id="desks" name="desks">
+              <option value="">Approximate desk count</option>
+              <option>Under 10 desks</option>
+              <option>10–25 desks</option>
+              <option>26–50 desks</option>
+              <option>51–100 desks</option>
+              <option>100+ desks</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="location">Job Location</label>
+            <input type="text" id="location" name="location" placeholder="e.g. Leeds city centre">
+          </div>
+        </div>
+        <div class="form-group" style="margin-bottom:0">
+          <label for="message">Tell us about the project</label>
+          <textarea id="message" name="message" placeholder="Move date, number of days on-site expected, any known IT setup complexity..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send Enquiry →</button>
+      </form>
+    </div>
+
+    <div class="direct-contact">
+      <div class="direct-item">
+        <span class="direct-icon">📞</span>
+        <div>
+          <h4>Call or Text</h4>
+          <a href="tel:+447340779846">+44 7340 779846</a>
+        </div>
+      </div>
+      <div class="direct-item">
+        <span class="direct-icon">📧</span>
+        <div>
+          <h4>Email</h4>
+          <a href="mailto:hello@neatcablepro.co.uk">hello@neatcablepro.co.uk</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="logo">Neat Cable <span style="color:var(--accent)">Pro</span></div>
+  <p>IT Workstation Commissioning · Cable Management · West &amp; North Yorkshire</p>
+  <p style="margin-top:0.4rem">Fully Insured · IT-Qualified · <a href="index.html">neatcablepro.co.uk</a></p>
+  <p style="margin-top:0.75rem">© 2025 Neat Cable Pro. All rights reserved.</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => {
+          e.target.classList.add('visible');
+        }, i * 100);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.step, .cov-card').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
